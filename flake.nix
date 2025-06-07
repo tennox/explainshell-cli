@@ -24,7 +24,11 @@
       # perSystem docs: https://flake.parts/module-arguments.html#persystem-module-parameters
       perSystem = { config, self', inputs', pkgs, system, ... }: (
         let
-          rustToolchain = pkgs.rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
+          rust-pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ (import rust-overlay) ];
+          };
+          rustToolchain = rust-pkgs.rust-bin.selectLatestNightlyWith (toolchain: toolchain.default.override {
             targets = [
               "x86_64-unknown-linux-musl"
               # "wasm-unknown-unknown"
@@ -35,6 +39,7 @@
           my-crate = craneLib.buildPackage {
             # https://crane.dev/getting-started.html
             src = craneLib.cleanCargoSource (craneLib.path ./.);
+            meta.mainProgram = "explain";
 
             # CARGO_BUILD_TARGET = "wasm-unknown-unknown";
             CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
