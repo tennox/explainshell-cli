@@ -42,6 +42,7 @@
           commonArgs = {
             # https://crane.dev/getting-started.html
             src = craneLib.cleanCargoSource (craneLib.path ./.);
+            meta.mainProgram = "explain";
 
             # CARGO_BUILD_TARGET = "wasm-unknown-unknown";
             CARGO_BUILD_TARGET = "x86_64-unknown-linux-musl";
