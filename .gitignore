@@ -1,5 +1,7 @@
 /target
+/result
 **/*.rs.bk
+ 
 ##########
 # Devenv #
 ##########
