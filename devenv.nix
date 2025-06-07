@@ -6,7 +6,7 @@
     nix.enable = true;
     rust = {
       enable = true; # https://github.com/cachix/devenv/blob/main/src/modules/languages/rust.nix
-      channel = "nightly";
+      # 🛈  don't change channel & targets here, but in flake.nix
     };
   };
 
