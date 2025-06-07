@@ -4,8 +4,14 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05"; # or use /nixos-unstable to get latest packages, but maybe less caching
     systems.url = "github:nix-systems/default"; # (i) allows overriding systems easily, see https://github.com/nix-systems/nix-systems#consumer-usage
-    devenv.url = "github:cachix/devenv";
-    rust-overlay.url = "github:oxalica/rust-overlay"; # TODO: replace with fenix?
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay"; # TODO: replace with fenix?
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     crane.url = "github:ipetkov/crane";
   };
 
