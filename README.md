@@ -4,14 +4,15 @@
 ###### explainshell.com CLI implementation in Rust
 _____________
 
-Needs the Rust Toolchain (available at [https://rustup.rs/]() ).
+
+##### Try it out:  
+```nix shell github:thepigeonoftime/explainshell-cli```  
 
 ##### Installation:  
-```cargo install --git https://github.com/p1g30n/explainshell-cli```  
+Use your favorite way to install nix packages, or simply:
+```nix profile install github:thepigeonoftime/explainshell-cli```  
 
->note that ~/.cargo/bin/ must be in your $PATH
-
-##### Usage:  
+#### Usage:  
 ```explain COMMAND [ARGS]``` (combining arguments works)
 
 ##### Example:  
